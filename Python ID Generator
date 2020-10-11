@@ -1,0 +1,15 @@
+import csv
+
+#You need to create an empty list to put the IDs in
+march_27_ids = []
+
+#This will open the tsv file and input the IDs
+with open('2020-03-27_clean-dataset.tsv') as tsvfile:
+  reader = csv.reader(tsvfile, delimiter='\t')
+  for tweet_id in reader:
+      march_27_ids.append(tweet_id[0])
+
+#This opens a new file that has just the IDs
+with open('march_27_tweet_ids', 'w') as f:
+    for item in march_27_ids:
+        f.write("%s\n" % item)
